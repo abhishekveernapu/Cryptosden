@@ -1,0 +1,14 @@
+{
+  "watch": [
+    "controllers",
+    "routes",
+    "middleware",
+    "config",
+    "utils"
+  ],
+  "ignore": [
+    "services/gruService.js",
+    "*.log"
+  ],
+  "ext": "js,json"
+}

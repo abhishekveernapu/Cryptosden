@@ -1,0 +1,124 @@
+.navbar {
+  position:        sticky;
+  top:             0;
+  z-index:         100;
+  background:      var(--bg-secondary);
+  border-bottom:   1px solid var(--border);
+  height:          64px;
+  display:         flex;
+  align-items:     center;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-inner {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  width:           100%;
+}
+
+/* ── Logo ─────────────────────────────────────────────────────── */
+.navbar-logo {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+  text-decoration: none;
+}
+
+.navbar-logo-icon {
+  width:         34px;
+  height:        34px;
+  background:    linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+  border-radius: 10px;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  font-size:     18px;
+}
+
+.navbar-logo-text {
+  font-size:   20px;
+  font-weight: 800;
+  background:  linear-gradient(135deg, var(--accent), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* ── Nav Links ────────────────────────────────────────────────── */
+.navbar-links {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  list-style:  none;
+}
+
+.navbar-links a {
+  padding:       8px 12px;
+  border-radius: var(--radius-xs);
+  color:         var(--text-secondary);
+  font-weight:   500;
+  font-size:     13px;
+  transition:    all 0.15s;
+}
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: var(--bg-hover);
+  color:      var(--text-primary);
+}
+
+/* ── Right Actions ────────────────────────────────────────────── */
+.navbar-actions {
+  display:     flex;
+  align-items: center;
+  gap:         8px;
+}
+
+.theme-toggle {
+  width:         36px;
+  height:        36px;
+  border-radius: 50%;
+  background:    var(--bg-hover);
+  border:        1px solid var(--border);
+  color:         var(--text-secondary);
+  font-size:     16px;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  transition:    all 0.2s;
+}
+.theme-toggle:hover {
+  background:  var(--bg-card);
+  color:       var(--text-primary);
+  border-color: var(--accent);
+}
+
+/* ── Ticker Bar ───────────────────────────────────────────────── */
+.ticker-bar {
+  background:  var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding:     8px 0;
+  overflow:    hidden;
+  font-size:   12px;
+  color:       var(--text-secondary);
+}
+
+.ticker-inner {
+  display:    flex;
+  align-items:center;
+  gap:        24px;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+.ticker-item img {
+  width:  16px;
+  height: 16px;
+  border-radius: 50%;
+}
