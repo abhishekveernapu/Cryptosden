@@ -44,7 +44,7 @@ function Register() {
       const user = result.user;
 
       // 2. Send Firebase user data to your backend
-      const response = await api.post("/api/auth/firebase-login", {
+      const response = await api.post("/auth/firebase-login", {
         email: user.email,
         displayName: user.displayName,
         uid: user.uid,
