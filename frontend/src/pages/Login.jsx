@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { login as loginApi } from "../api/auth";
 import { useAuth } from "../context/AuthContext.jsx";
-import axios from "axios";
-
+import api from '../api/axiosInstance';  
 // Firebase imports
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, facebookProvider } from '../config/firebase'; // Ensure this path is correct
@@ -44,7 +43,7 @@ function Login() {
       const user = result.user;
 
       // 2. Send Firebase user data to your backend
-      const response = await axios.post("http://localhost:8080/api/auth/firebase-login", {
+      const response = await api.post("/api/auth/firebase-login", {
         email: user.email,
         displayName: user.displayName,
         uid: user.uid,
