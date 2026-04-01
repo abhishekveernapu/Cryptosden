@@ -35,7 +35,7 @@ const ORIGIN = process.env.FRONTEND_URL || 'http://localhost:5173';
 let isGRUTraining = false;
 
 app.use(cors({
-  origin:         "https://cryptosden-frontend.onrender.com",
+  origin:         "https://cryptosden.onrender.com",
   credentials:    true,
   methods:        ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
