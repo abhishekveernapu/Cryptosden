@@ -78,37 +78,23 @@ function Login() {
 
   // Google / Facebook OAuth — uses redirect instead of popup (fixes COOP error on Render)
   const handleOAuthLogin = async (provider, providerName) => {
-    try {
-      setError("");
-      setLoading(true);
-      // 1. Authenticate with Firebase
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      // 2. Send Firebase user data to your backend
-      const response = await api.post("/auth/firebase-login", {
-        email: user.email,
-        displayName: user.displayName,
-        uid: user.uid,
-        provider: providerName,
-      });
-
-      // 3. Log user in using your existing context
-      if (response.data.success) {
-        login(response.data.token, response.data.user);
-        navigate("/markets");
-      }
-    } catch (err) {
-      console.error(`${providerName} login error:`, err);
-      if (err.code === "auth/account-exists-with-different-credential") {
-        setError("An account already exists with the same email address but different sign-in credentials.");
-      } else {
-        setError(err.response?.data?.message || `Failed to continue with ${providerName}`);
-      }
-    } finally {
-      setLoading(false);
+  try {
+    setError("");
+    setLoading(true);
+    await signInWithRedirect(auth, provider);
+    // Page redirects here, so no more code runs now
+  } catch (err) {
+    console.error(`${providerName} login error:`, err);
+    if (err.code === "auth/account-exists-with-different-credential") {
+      setError(
+        "An account already exists with the same email address but different sign-in credentials."
+      );
+    } else {
+      setError(err.response?.data?.message || `Failed to continue with ${providerName}`);
     }
-  };
+    setLoading(false);
+  }
+};
 
   return (
     <div className="container" style={{ padding: "40px 0" }}>
