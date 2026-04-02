@@ -3,7 +3,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { login as loginApi } from "../api/auth";
 import { useAuth } from "../context/AuthContext.jsx";
 import api from "../api/axiosInstance";
-import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 // Firebase imports
 import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { auth, googleProvider, facebookProvider } from "../config/firebase";
