@@ -1,6 +1,3 @@
-Based on the provided project files, here is a comprehensive `README.md` file for the **CryptosDen** repository. 
-
-```markdown
 # CryptosDen
 
 CryptosDen is an advanced cryptocurrency tracking and analytics platform. It provides users with real-time market data, AI/ML-driven price predictions, sentiment analysis, and market anomaly detection.
@@ -55,6 +52,7 @@ The backend features a robust scheduling system that autonomously maintains data
    ```bash
    npm install
    ```
+
 3. Configure your `.env` file with `PORT`, `FRONTEND_URL`, `COINGECKO_API_KEY`, `CRYPTOPANIC_API_KEY`, and `SMTP_USER`.
 4. Start the development server:
    ```bash
@@ -72,4 +70,43 @@ The backend features a robust scheduling system that autonomously maintains data
    ```bash
    npm run dev
    ```
+## 🔐 Environment Variables
+
+To run this project, you will need to create a `.env` file in your `backend` directory and add the following environment variables.
+
+### Core Configuration
+* **`PORT`**: The port the backend will run on (Default: `8080`).
+* **`FRONTEND_URL`**: The origin URL of your frontend to allow CORS (Default: `http://localhost:5173`).
+* **`MONGO_URI`**: Your MongoDB connection string for the database.
+* **`JWT_SECRET`**: A strong, random string used by `jsonwebtoken` to sign authentication tokens.
+
+### API Keys & Services
+The backend relies on several third-party services. The platform uses a key-rotation strategy for CoinGecko to bypass strict free-tier rate limits.
+
+* **`COINGECKO_API_KEY`**, **`COINGECKO_API_KEY2`**, **`...`**, **`COINGECKO_API_KEY5`**: 
+  * **What it is:** Keys used to fetch real-time market data, historical charts, and exchange rates.
+  * **How to get it:** Go to the [CoinGecko API portal](https://www.coingecko.com/en/api), create a free developer account, and generate Demo API keys. You can generate multiple keys or use keys from different free accounts to populate variables 1 through 5.
+* **`CRYPTOPANIC_API_KEY`**:
+  * **What it is:** Used by the sentiment analysis service to fetch the latest cryptocurrency news.
+  * **How to get it:** Create a free account on [CryptoPanic](https://cryptopanic.com/), navigate to your account settings or the API section, and generate your developer authentication token.
+* **`SMTP_USER`** & **`SMTP_PASS`**:
+  * **What it is:** Credentials used by Nodemailer to dispatch custom market alerts to users.
+  * **How to get it:** You can use a standard Gmail account. Go to your Google Account Security settings, enable 2-Step Verification, and create an "App Password" to use as your `SMTP_PASS`, while your email address is your `SMTP_USER`. Alternatively, use a service like SendGrid, Mailgun, or AWS SES.
+
+### Example `.env` file:
+```env
+PORT=8080
+FRONTEND_URL=http://localhost:5173
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/cryptosden
+JWT_SECRET=your_super_secret_jwt_string
+
+# API Keys
+COINGECKO_API_KEY=your_cg_key_1
+COINGECKO_API_KEY5=your_cg_key_2
+
+CRYPTOPANIC_API_KEY=your_cryptopanic_key
+
+# Email configuration
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_google_app_password
 ```
