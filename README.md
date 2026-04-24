@@ -1,3 +1,6 @@
+Based on the provided project files, here is a comprehensive `README.md` file for the **CryptosDen** repository. 
+
+```markdown
 # CryptosDen
 
 CryptosDen is an advanced cryptocurrency tracking and analytics platform. It provides users with real-time market data, AI/ML-driven price predictions, sentiment analysis, and market anomaly detection.
@@ -51,3 +54,22 @@ The backend features a robust scheduling system that autonomously maintains data
 2. Install dependencies:
    ```bash
    npm install
+   ```
+3. Configure your `.env` file with `PORT`, `FRONTEND_URL`, `COINGECKO_API_KEY`, `CRYPTOPANIC_API_KEY`, and `SMTP_USER`.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   *(Alternatively, use `npm run train` to manually trigger the GRU model training script)*.
+
+### Frontend Setup
+1. Navigate to the frontend directory.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+```
