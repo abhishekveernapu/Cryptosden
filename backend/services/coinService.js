@@ -5,9 +5,7 @@ const BASE_URL = 'https://api.coingecko.com/api/v3';
 // ── API Keys — filter undefined at module load ────────────────────────────
 const API_KEYS = [
   process.env.COINGECKO_API_KEY,
-  process.env.COINGECKO_API_KEY2,
-  process.env.COINGECKO_API_KEY3,
-  process.env.COINGECKO_API_KEY4,
+  
   process.env.COINGECKO_API_KEY5,
 ].filter(k => k && k !== 'undefined');
 
